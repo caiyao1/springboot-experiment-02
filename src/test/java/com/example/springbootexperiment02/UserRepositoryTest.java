@@ -28,7 +28,6 @@ public class UserRepositoryTest {
     public void addUserTest() {
         User user = userRepository.addUser(new User("BO"));
         log.debug("{}", user.getInsertTime());
-        System.out.println(user.getInsertTime());
     }
 
     @Test
@@ -40,19 +39,17 @@ public class UserRepositoryTest {
     public void updateUser(){
         User user=userRepository.updateUser(2, "张三");
         log.debug("{}", user);
-        System.out.println(user);
     }
     @Test
     public void updateAddress(){
         Address address=userRepository.updateAddress(1, 2);
         log.debug("{}", address);
-        System.out.println(address);
     }
     @Test
     public void listAddresses(){
         List<Address> addresses=userRepository.listAddresses(1);
         addresses.forEach(address -> {
-            System.out.println(address);});
+            log.debug("{}", address);});
     }
     @Test
     public void removeAddress(){
